@@ -12,92 +12,8 @@ export const Projects = () => {
             Featured Projects
           </h2>
           
-          {/* Personal Projects Section */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-center text-white">
-              💡 Personal Projects
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
-                <h3 className="text-xl font-bold mb-2">Reallo</h3>
-                <p className="text-gray-400 mb-4">
-                  Smart personal budgeting app that helps users reallocate budgets and avoid over-spending. Built with React Native and Node.js.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["React Native", "Node.js", "MongoDB", "Express"].map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
-                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                      "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
-                <h3 className="text-xl font-bold mb-2">Synq</h3>
-                <p className="text-gray-400 mb-4">
-                  A unified JIRA + Slack platform enabling task management and chat in one interface. Built on Next.js, WebSockets, and PostgreSQL.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["Next.js", "WebSockets", "PostgreSQL", "React"].map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
-                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                      "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
-                <h3 className="text-xl font-bold mb-2">WatchTower</h3>
-                <p className="text-gray-400 mb-4">
-                  Plug-and-play GitHub monitoring platform with Prometheus / Grafana-style metrics, AI assistant and modern user interface.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["FastAPI", "React", "Prometheus", "AI Assistant"].map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
-                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                      "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
-                <h3 className="text-xl font-bold mb-2">FrameFlow</h3>
-                <p className="text-gray-400 mb-4">
-                  Enterprise-grade annotation platform that cuts labeling time by 70% using AI-human workflows. Scales across large video/image datasets.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["Python", "AI Workflows", "Computer Vision", "React"].map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
-                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
-                      "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Professional Projects Section */}
-          <div>
+          <div className="mb-16">
             <h3 className="text-2xl font-bold mb-8 text-center text-white">
               🏢 Professional Projects
             </h3>
@@ -277,6 +193,128 @@ export const Projects = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Personal Projects Section */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-center text-white">
+              💡 Personal Projects
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <a href="https://www.aiapply.live/" target="_blank" rel="noopener noreferrer" className="block p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
+                <h3 className="text-xl font-bold mb-2">AiApply</h3>
+                <p className="text-gray-400 mb-4">
+                  AI-powered resume optimization platform. Upload your resume and job description to receive ATS scores, tailored improvement suggestions, and a curated cover letter. Features include JD-to-resume compatibility analysis, copy-ready resume edits, and top 5 job matches in your region.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["FastAPI", "OpenAI APIs", "Next.js", "ATS Optimization"].map((tech, key) => (
+                    <span
+                      key={key}
+                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
+                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </a>
+
+              <a href="https://www.carbonlens.org/" target="_blank" rel="noopener noreferrer" className="block p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
+                <h3 className="text-xl font-bold mb-2">CarbonLens</h3>
+                <p className="text-gray-400 mb-4">
+                  Automated carbon reporting tool designed for Indian regulatory compliance. Leverages NASA-grade satellite data to calculate Scope 1, 2, and 3 emissions for ESG and audit readiness.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Python", "Satellite APIs", "NASA Data", "ESG Compliance"].map((tech, key) => (
+                    <span
+                      key={key}
+                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
+                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </a>
+              
+              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
+                <h3 className="text-xl font-bold mb-2">Reallo</h3>
+                <p className="text-gray-400 mb-4">
+                  Smart personal budgeting app that helps users reallocate budgets and avoid over-spending. Built with React Native and Node.js.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["React Native", "Node.js", "MongoDB", "Express"].map((tech, key) => (
+                    <span
+                      key={key}
+                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
+                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <a href="https://synq-nine.vercel.app/" target="_blank" rel="noopener noreferrer" className="block p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
+                <h3 className="text-xl font-bold mb-2">Synq</h3>
+                <p className="text-gray-400 mb-4">
+                  A unified JIRA + Slack platform enabling task management and chat in one interface. Built on Next.js, WebSockets, and PostgreSQL.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Next.js", "WebSockets", "PostgreSQL", "React"].map((tech, key) => (
+                    <span
+                      key={key}
+                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
+                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </a>
+              
+              <a href="https://watchtower-ebon.vercel.app/" target="_blank" rel="noopener noreferrer" className="block p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
+                <h3 className="text-xl font-bold mb-2">WatchTower</h3>
+                <p className="text-gray-400 mb-4">
+                  Plug-and-play GitHub monitoring platform with Prometheus / Grafana-style metrics, AI assistant and modern user interface.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["FastAPI", "React", "Prometheus", "AI Assistant"].map((tech, key) => (
+                    <span
+                      key={key}
+                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
+                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </a>
+              
+              <a href="https://www.frameflow.online/" target="_blank" rel="noopener noreferrer" className="block p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition cursor-pointer">
+                <h3 className="text-xl font-bold mb-2">FrameFlow</h3>
+                <p className="text-gray-400 mb-4">
+                  Enterprise-grade annotation platform that cuts labeling time by 70% using AI-human workflows. Scales across large video/image datasets.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Python", "AI Workflows", "Computer Vision", "React"].map((tech, key) => (
+                    <span
+                      key={key}
+                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
+                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </a>
             </div>
           </div>
         </div>
