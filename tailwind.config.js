@@ -8,26 +8,15 @@ export default {
     extend: {
       fontFamily: {
         'sans': ['Space Grotesk', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'monospace'],
       },
       animation: {
-        'blink': 'blink 0.8s step-end infinite',
-        'loading-bar': 'loading 0.8s ease infinite',
-      },
-      keyframes: {
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
-        },
-        loading: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(250%)' },
-        },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'blink': 'blink 1s step-end infinite',
+        'glitch': 'glitch 0.3s ease infinite',
+        'float': 'float 3s ease-in-out infinite',
+        'pulse-dot': 'pulse-dot 2s ease-in-out infinite',
       },
     },
   },
   plugins: [],
 }
-

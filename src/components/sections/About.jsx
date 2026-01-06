@@ -1,142 +1,142 @@
 import { RevealOnScroll } from "../RevealOnScroll";
 
 export const About = () => {
-  const languages = [
-    "Golang",
-    "Node.js (NestJS)",
-    "Python",
-    "Java",
-    "JavaScript",
-    "TypeScript"
-  ];
-
-  const frameworks = [
-    "NestJS",
-    "React",
-    "Next.js",
-    "SvelteKit",
-    "TensorFlow",
-    "Kafka",
-    "React Native"
-  ];
-
-  const cloudAndTools = [
-    "AWS (EC2, ECS, S3)",
-    "Docker",
-    "Kubernetes",
-    "GitHub Actions",
-    "PostgreSQL",
-    "MongoDB",
-    "Redis",
-    "Microservices",
-    "REST APIs",
-    "Agile/Scrum",
-    "TDD"
-  ];
+  const skills = {
+    languages: ["Golang", "Node.js", "Python", "Java"],
+    cloud: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+    databases: ["PostgreSQL", "MongoDB", "Redis"],
+    other: ["GraphQL", "Microservices", "System Design"],
+  };
 
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center py-20"
+      className="min-h-screen flex items-center justify-center py-32 px-6"
     >
       <RevealOnScroll>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-            About Me
-          </h2>
-
-          <div className="rounded-xl p-8 border-white/10 border hover:-translate-y-1 transition-all">
-            <p className="text-gray-300 mb-6">
-              Lead Engineer with 3+ years of experience architecting scalable AI systems, real-time infrastructure, and SaaS platforms. Proven track record of designing distributed backends handling 20K+ devices, leading high-performing teams, and shipping production-grade developer tools. Currently focused on AI automation, observability infrastructure, and annotation platforms built for scale.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all">
-                <h3 className="text-xl font-bold mb-4">Languages</h3>
-                <div className="flex flex-wrap gap-2">
-                  {languages.map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
-                                    hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition
-                    "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all">
-                <h3 className="text-xl font-bold mb-4">Frameworks</h3>
-                <div className="flex flex-wrap gap-2">
-                  {frameworks.map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
-                                    hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition
-                    "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all">
-                <h3 className="text-xl font-bold mb-4">Cloud & Tools</h3>
-                <div className="flex flex-wrap gap-2">
-                  {cloudAndTools.map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 
-                                    hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition
-                    "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+        <div className="max-w-5xl">
+          {/* Section header */}
+          <div className="flex items-center gap-4 mb-16">
+            <span className="text-green-500 font-mono text-sm">01</span>
+            <span className="text-[#333]">/</span>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+              About
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all">
-              <h3 className="text-xl font-bold mb-4">🏫 Education</h3>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li>
-                  <strong>Bachelor of Science</strong> - University of Delhi
-                  (2018-2021), 8.8 CGPA
-                </li>
-              </ul>
-            </div>
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all">
-              <h3 className="text-xl font-bold mb-4">💼 Work Experience</h3>
-              <div className="space-y-4 text-gray-300">
-                <div>
-                  <h4 className="font-semibold text-blue-400">
-                    Lead Engineer (Backend & AI Systems) - LensCorpAI
-                  </h4>
-                  <p className="text-sm text-gray-400 mb-2">Sept 2023 – Present | Gurugram, India</p>
-                  <ul className="text-sm space-y-1 list-disc list-inside">
-                    <li>Spearheaded enterprise-grade AI and SaaS platforms, increasing client revenue by 30%</li>
-                    <li>Architected fleet intelligence system for JSW, reducing oil theft by 60%</li>
-                    <li>Built real-time monitoring for 20K+ devices, cutting vendor costs by 40%</li>
-                    <li>Led hiring operations: 80+ interviews, onboarded 20+ engineers</li>
-                  </ul>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Left - Bio */}
+            <div>
+              <p className="text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
+                I build things that{" "}
+                <span className="text-stroke hoverable cursor-default">scale</span>{" "}
+                <span className="text-green-500">(and don't crash at 3 AM)</span>.
+              </p>
 
-                <div>
-                  <h4 className="font-semibold text-blue-400">
-                    Full Stack Developer - SuperMinds IT
-                  </h4>
-                  <p className="text-sm text-gray-400 mb-2">Aug 2022 – Aug 2023 | Onsite</p>
-                  <ul className="text-sm space-y-1 list-disc list-inside">
-                    <li>Developed multiplayer Web3 chess game with MetaMask integration</li>
-                    <li>Refactored React frontend, reducing bundle size by 25%</li>
-                    <li>Improved Lighthouse SEO score from 71 to 93</li>
-                  </ul>
+              <div className="space-y-6 text-[#888] text-lg leading-relaxed">
+                <p>
+                  Backend & Cloud Engineer with <span className="text-white font-bold text-xl">3.5+ years</span> of 
+                  experience turning complex problems into elegant solutions.
+                </p>
+                <p>
+                  I've architected systems handling <span className="text-green-400 font-bold">200K+ users</span>, 
+                  managed <span className="text-green-400 font-bold">20K+ device fleets</span>, and led 
+                  <span className="text-green-400 font-bold"> 60+ technical interviews</span>.
+                </p>
+                <p className="text-[#555] italic">
+                  "When I'm not pushing commits, I'm probably at a bar discussing 
+                  why microservices are both the best and worst thing ever" 🍺
+                </p>
+              </div>
+
+              {/* AWS Badges - BIGGER & BOLDER */}
+              <div className="mt-12">
+                <p className="text-white font-bold text-lg uppercase mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🏆</span> Certifications
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <div className="hoverable border-2 border-[#ff9900] bg-[#ff9900]/10 px-6 py-3 font-bold text-[#ff9900] hover:bg-[#ff9900] hover:text-black transition-all cursor-default group">
+                    <span className="group-hover:animate-glitch">☁️ AWS Solutions Architect</span>
+                  </div>
+                  <div className="hoverable border-2 border-[#ff9900] bg-[#ff9900]/10 px-6 py-3 font-bold text-[#ff9900] hover:bg-[#ff9900] hover:text-black transition-all cursor-default group">
+                    <span className="group-hover:animate-glitch">👨‍💻 AWS Developer Associate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Skills & Experience */}
+            <div>
+              {/* Skills grid */}
+              <div className="mb-12">
+                <p className="text-white font-bold text-lg uppercase mb-6 flex items-center gap-2">
+                  <span className="text-2xl">⚡</span> Tech Stack
+                </p>
+                <div className="grid grid-cols-2 gap-6">
+                  {Object.entries(skills).map(([category, items]) => (
+                    <div key={category}>
+                      <p className="text-green-500 text-xs font-mono uppercase mb-3 font-bold">{category}</p>
+                      <div className="space-y-2">
+                        {items.map((skill, idx) => (
+                          <div 
+                            key={idx}
+                            className="hoverable text-white hover:text-green-400 hover:translate-x-2 transition-all cursor-default font-medium"
+                          >
+                            {skill}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Experience - BIGGER */}
+              <div>
+                <p className="text-white font-bold text-lg uppercase mb-6 flex items-center gap-2">
+                  <span className="text-2xl">💼</span> Experience
+                </p>
+                <div className="space-y-8">
+                  <div className="group hoverable cursor-default border-l-4 border-green-500 pl-6 py-2 hover:bg-green-500/5 transition-all">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-2xl font-bold text-white group-hover:animate-glitch">
+                        Head of Engineering
+                      </h3>
+                      <span className="text-green-500 font-mono text-sm font-bold bg-green-500/10 px-3 py-1">2023-25</span>
+                    </div>
+                    <p className="text-green-400 font-medium mb-2">LensCorpAI</p>
+                    <p className="text-[#666] text-sm">
+                      Led system design, backend architecture, and AWS infrastructure. 
+                      Built platforms serving 200K+ users.
+                    </p>
+                  </div>
+
+                  <div className="group hoverable cursor-default border-l-4 border-blue-500 pl-6 py-2 hover:bg-blue-500/5 transition-all">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-2xl font-bold text-white group-hover:animate-glitch">
+                        Full Stack Developer
+                      </h3>
+                      <span className="text-blue-500 font-mono text-sm font-bold bg-blue-500/10 px-3 py-1">2022-23</span>
+                    </div>
+                    <p className="text-blue-400 font-medium mb-2">SuperMinds IT</p>
+                    <p className="text-[#666] text-sm">
+                      Built Web3 chess platform with Ethereum & MetaMask integration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Education - BIGGER */}
+              <div className="mt-12 p-6 border-2 border-[#333] hover:border-white transition-colors">
+                <p className="text-white font-bold text-lg uppercase mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🎓</span> Education
+                </p>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-white font-bold text-xl">B.Sc, University of Delhi</p>
+                    <p className="text-[#555]">Computer Science</p>
+                  </div>
+                  <span className="text-white font-mono font-bold bg-white/10 px-4 py-2">2018-21</span>
                 </div>
               </div>
             </div>

@@ -1,86 +1,144 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const MouseAnimation = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorVariant, setCursorVariant] = useState('default');
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
+  const [trail, setTrail] = useState([]);
+  const trailLength = 8;
 
   useEffect(() => {
+    let animationFrame;
+    
     const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
+      setPosition({ x: e.clientX, y: e.clientY });
+      setIsVisible(true);
+      
+      // Add to trail
+      setTrail(prev => {
+        const newTrail = [...prev, { x: e.clientX, y: e.clientY, id: Date.now() }];
+        return newTrail.slice(-trailLength);
       });
     };
 
-    const mouseEnter = () => setCursorVariant('hover');
-    const mouseLeave = () => setCursorVariant('default');
+    const mouseDown = () => setIsClicking(true);
+    const mouseUp = () => setIsClicking(false);
+    const mouseLeave = () => setIsVisible(false);
+    const mouseEnter = () => setIsVisible(true);
 
-    // Add mouse move listener
+    const handleElementEnter = () => setIsHovering(true);
+    const handleElementLeave = () => setIsHovering(false);
+
     window.addEventListener('mousemove', mouseMove);
+    window.addEventListener('mousedown', mouseDown);
+    window.addEventListener('mouseup', mouseUp);
+    document.addEventListener('mouseleave', mouseLeave);
+    document.addEventListener('mouseenter', mouseEnter);
 
-    // Add hover listeners to interactive elements
-    const interactiveElements = document.querySelectorAll(
-      'a, button, [role="button"], .cursor-pointer, input, textarea'
-    );
+    const addHoverListeners = () => {
+      const elements = document.querySelectorAll('a, button, input, textarea, .hoverable');
+      elements.forEach(el => {
+        el.addEventListener('mouseenter', handleElementEnter);
+        el.addEventListener('mouseleave', handleElementLeave);
+      });
+      return elements;
+    };
 
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', mouseEnter);
-      el.addEventListener('mouseleave', mouseLeave);
+    let elements = addHoverListeners();
+
+    const observer = new MutationObserver(() => {
+      elements.forEach(el => {
+        el.removeEventListener('mouseenter', handleElementEnter);
+        el.removeEventListener('mouseleave', handleElementLeave);
+      });
+      elements = addHoverListeners();
     });
+
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       window.removeEventListener('mousemove', mouseMove);
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', mouseEnter);
-        el.removeEventListener('mouseleave', mouseLeave);
+      window.removeEventListener('mousedown', mouseDown);
+      window.removeEventListener('mouseup', mouseUp);
+      document.removeEventListener('mouseleave', mouseLeave);
+      document.removeEventListener('mouseenter', mouseEnter);
+      elements.forEach(el => {
+        el.removeEventListener('mouseenter', handleElementEnter);
+        el.removeEventListener('mouseleave', handleElementLeave);
       });
+      observer.disconnect();
     };
   }, []);
 
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      scale: 1,
-    },
-    hover: {
-      x: mousePosition.x - 24,
-      y: mousePosition.y - 24,
-      scale: 1.5,
-    }
-  };
+  // Hide on touch devices
+  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+    return null;
+  }
+
+  const cursorSize = isClicking ? 8 : isHovering ? 48 : 16;
+  const cursorOffset = cursorSize / 2;
 
   return (
     <>
+      {/* Trail dots */}
+      {trail.map((point, idx) => (
+        <div
+          key={point.id}
+          className="fixed top-0 left-0 pointer-events-none z-40 rounded-full bg-white"
+          style={{
+            width: `${(idx + 1) * 1}px`,
+            height: `${(idx + 1) * 1}px`,
+            opacity: (idx + 1) / trailLength * 0.3,
+            transform: `translate3d(${point.x - (idx + 1) * 0.5}px, ${point.y - (idx + 1) * 0.5}px, 0)`,
+            transition: 'opacity 0.2s ease',
+          }}
+        />
+      ))}
+
       {/* Main cursor */}
       <div
-        className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-50 mix-blend-difference transition-all duration-150 ease-out"
+        className={`fixed top-0 left-0 pointer-events-none z-50 mix-blend-difference transition-all duration-150 ease-out ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
         style={{
-          transform: `translate3d(${variants[cursorVariant].x}px, ${variants[cursorVariant].y}px, 0) scale(${variants[cursorVariant].scale})`,
+          width: `${cursorSize}px`,
+          height: `${cursorSize}px`,
+          transform: `translate3d(${position.x - cursorOffset}px, ${position.y - cursorOffset}px, 0)`,
         }}
       >
-        <div className="w-full h-full bg-white rounded-full opacity-80"></div>
+        <div 
+          className={`w-full h-full rounded-full border-2 border-white transition-all duration-200 ${
+            isHovering ? 'bg-white/20' : 'bg-white'
+          } ${isClicking ? 'scale-50' : 'scale-100'}`}
+        />
       </div>
 
-      {/* Trailing cursor */}
-      <div
-        className="fixed top-0 left-0 w-2 h-2 pointer-events-none z-40 transition-all duration-300 ease-out"
-        style={{
-          transform: `translate3d(${mousePosition.x - 4}px, ${mousePosition.y - 4}px, 0)`,
-        }}
-      >
-        <div className="w-full h-full bg-blue-500 rounded-full opacity-60"></div>
-      </div>
+      {/* Hover ring */}
+      {isHovering && (
+        <div
+          className="fixed top-0 left-0 pointer-events-none z-40 transition-all duration-300 ease-out opacity-50"
+          style={{
+            width: '60px',
+            height: '60px',
+            transform: `translate3d(${position.x - 30}px, ${position.y - 30}px, 0)`,
+          }}
+        >
+          <div className="w-full h-full rounded-full border border-white/30 animate-ping" />
+        </div>
+      )}
 
-      {/* Glow effect */}
-      <div
-        className="fixed top-0 left-0 w-16 h-16 pointer-events-none z-30 transition-all duration-500 ease-out opacity-20"
-        style={{
-          transform: `translate3d(${mousePosition.x - 32}px, ${mousePosition.y - 32}px, 0)`,
-        }}
-      >
-        <div className="w-full h-full bg-gradient-radial from-blue-400 to-transparent rounded-full"></div>
-      </div>
+      {/* Click ripple effect */}
+      {isClicking && (
+        <div
+          className="fixed top-0 left-0 pointer-events-none z-40"
+          style={{
+            transform: `translate3d(${position.x - 25}px, ${position.y - 25}px, 0)`,
+          }}
+        >
+          <div className="w-[50px] h-[50px] rounded-full border border-white/50 animate-ping" />
+        </div>
+      )}
     </>
   );
 };
