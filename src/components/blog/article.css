@@ -1,0 +1,510 @@
+/* ─── Article Page Reset ─── */
+.article-page {
+  --bg: #F0EDE6;
+  --bg-code: #1a1a2e;
+  --text: #1a1a1a;
+  --text-secondary: #3d3d3d;
+  --text-muted: #6e6e6e;
+  --accent: #e10600;
+  --accent-glow: rgba(225, 6, 0, 0.08);
+  --accent-dark: #b30500;
+  --border: #D6D2C9;
+  --code-text: #e2e8f0;
+  --tag-color: #15803d;
+  --tag-bg: rgba(21, 128, 61, 0.08);
+  --callout-bg: #E8E5DE;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --display: 'Playfair Display', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+
+  font-family: var(--serif);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+  cursor: auto;
+  min-height: 100vh;
+}
+
+/* ─── Dark mode overrides ─── */
+[data-theme="dark"] .article-page {
+  --bg: #0a0a0a;
+  --text: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
+  --accent: #ff2a1f;
+  --accent-glow: rgba(255, 42, 31, 0.1);
+  --accent-dark: #ff4136;
+  --border: #222;
+  --tag-color: #4ade80;
+  --tag-bg: rgba(74, 222, 128, 0.08);
+  --callout-bg: #141414;
+}
+
+/* ─── Back Button ─── */
+.article-back-btn {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 100;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.article-back-btn:hover {
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+}
+
+/* ─── GitHub CTA ─── */
+.article-page .github-cta {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.article-page .github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--callout-bg);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.article-page .github-link:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+/* ─── Hero ─── */
+.article-page .hero {
+  position: relative;
+  padding: 6rem 2rem 5rem;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0f0f0f 0%, #1a0a0a 60%, var(--bg) 100%);
+  color: #fff;
+}
+
+.article-page .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 300px at 30% 40%, rgba(225,6,0,0.12), transparent),
+    radial-gradient(ellipse 400px 400px at 70% 60%, rgba(225,6,0,0.06), transparent);
+  pointer-events: none;
+}
+
+.article-page .hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.article-page .hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.15;
+  max-width: 780px;
+  margin: 0 auto 1.5rem;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.article-page .hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.article-page .hero-subtitle {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  position: relative;
+}
+
+.article-page .hero-meta {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.article-page .hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.article-page .hero-divider {
+  width: 50px;
+  height: 3px;
+  background: var(--accent);
+  margin: 3rem auto 0;
+  border-radius: 2px;
+  position: relative;
+}
+
+/* ─── Tags ─── */
+.article-page .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+.article-page .tag {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.35em 0.9em;
+  border-radius: 100px;
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Article Body ─── */
+.article-page .article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+.article-page .article p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.article-page .article p.lead {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+
+/* ─── Headings ─── */
+.article-page .article h2 {
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 3.5rem 0 1.2rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-left: 1.2rem;
+  color: var(--text);
+}
+
+.article-page .article h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.article-page .article h3 {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 2.5rem 0 0.8rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+/* ─── Code Blocks ─── */
+.article-page .code-block {
+  background: var(--bg-code);
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  margin: 1.5rem 0 2rem;
+  overflow-x: auto;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.article-page .code-block::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.article-page .code-block code {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--code-text);
+  white-space: pre;
+  display: block;
+}
+
+/* Inline code */
+.article-page .article code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: rgba(225, 6, 0, 0.06);
+  color: var(--accent-dark);
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .article-page .article code {
+  background: rgba(255, 42, 31, 0.1);
+}
+
+/* code inside code-block should not get inline styles */
+.article-page .code-block code {
+  background: none;
+  color: var(--code-text);
+  padding: 0;
+  border-radius: 0;
+}
+
+/* ─── Callout Boxes ─── */
+.article-page .callout {
+  background: var(--callout-bg);
+  border-left: 4px solid var(--accent);
+  padding: 1.3rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.article-page .callout p {
+  margin-bottom: 0;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+}
+
+.article-page .callout strong {
+  color: var(--text);
+}
+
+/* ─── Pull Quotes ─── */
+.article-page .pull-quote {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--accent-dark);
+  text-align: center;
+  padding: 2rem 2rem;
+  margin: 2.5rem 0;
+  position: relative;
+  line-height: 1.5;
+}
+
+.article-page .pull-quote::before,
+.article-page .pull-quote::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+.article-page .pull-quote::before { margin-bottom: 1.5rem; }
+.article-page .pull-quote::after { margin-top: 1.5rem; }
+
+/* ─── Architecture Diagram ─── */
+.article-page .arch-diagram {
+  background: var(--bg-code);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.article-page .arch-diagram pre {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  white-space: pre;
+  margin: 0;
+}
+
+/* ─── Separator ─── */
+.article-page .sep {
+  text-align: center;
+  margin: 3rem 0;
+  color: var(--border);
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+}
+
+/* ─── Author Card ─── */
+.article-page .author-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+  padding: 1.5rem;
+  background: var(--callout-bg);
+  border-radius: 12px;
+}
+
+.article-page .author-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #ff4136);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.article-page .author-info {
+  font-family: var(--sans);
+}
+
+.article-page .author-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.article-page .author-bio {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.2rem;
+}
+
+/* ─── Footer ─── */
+.article-page .article-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ─── Media (images & video) ─── */
+.article-page .article-media {
+  margin: 2.5rem -2rem;
+  text-align: center;
+}
+
+.article-page .article-img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  border: 1px solid var(--border);
+}
+
+.article-page .article-video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.article-page .media-caption {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* ─── Links in article ─── */
+.article-page .article a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(225,6,0,0.2);
+  transition: border-color 0.2s;
+}
+
+.article-page .article a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ─── Number highlights ─── */
+.article-page .num-highlight {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-glow);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* ─── Animations ─── */
+@keyframes articleFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.article-page .hero-eyebrow { animation: articleFadeUp 0.7s ease both 0.1s; }
+.article-page .hero h1 { animation: articleFadeUp 0.7s ease both 0.25s; }
+.article-page .hero-subtitle { animation: articleFadeUp 0.7s ease both 0.4s; }
+.article-page .hero-meta { animation: articleFadeUp 0.7s ease both 0.55s; }
+.article-page .hero-divider { animation: articleFadeUp 0.5s ease both 0.7s; }
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .article-page .hero { padding: 4rem 1.2rem 3.5rem; }
+  .article-page .article { padding: 2rem 1.2rem 4rem; }
+  .article-page .article h2 { font-size: 1.6rem; }
+  .article-page .pull-quote { font-size: 1.2rem; padding: 1.5rem 1rem; }
+  .article-page .article-media { margin: 2rem -0.5rem; }
+  .article-back-btn { top: 1rem; left: 1rem; font-size: 0.78rem; padding: 0.4rem 1rem; }
+}

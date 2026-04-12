@@ -9,16 +9,17 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
 
   return (
     <div
-      className={`fixed inset-0 bg-black z-30 flex flex-col transition-all duration-500 ${
+      className={`fixed inset-0 bg-th-bg z-30 flex flex-col transition-all duration-500 ${
         menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
       {/* Grid background */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `linear-gradient(var(--c-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--c-grid-line) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
+          opacity: 'var(--c-grid-opacity)'
         }}
       />
 
@@ -29,13 +30,13 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
             key={link.href}
             href={link.href}
             onClick={() => setMenuOpen(false)}
-            className={`group flex items-center gap-6 py-4 border-b border-[#111] transition-all duration-500 ${
+            className={`group flex items-center gap-6 py-4 border-b border-th-border transition-all duration-500 ${
               menuOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             }`}
             style={{ transitionDelay: menuOpen ? `${idx * 75}ms` : "0ms" }}
           >
             <span className="text-2xl group-hover:animate-bounce">{link.emoji}</span>
-            <span className="text-4xl font-bold text-white group-hover:text-green-400 transition-all">
+            <span className="text-4xl font-bold text-th-text group-hover:text-green-400 transition-all">
               {link.label}
             </span>
           </a>
@@ -44,7 +45,7 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
 
       {/* Footer */}
       <div 
-        className={`px-8 py-8 border-t border-[#111] transition-all duration-500 ${
+        className={`px-8 py-8 border-t border-th-border transition-all duration-500 ${
           menuOpen ? "opacity-100" : "opacity-0"
         }`}
         style={{ transitionDelay: menuOpen ? "400ms" : "0ms" }}
@@ -58,7 +59,7 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
         >
           📄 Download Resume
         </a>
-        <p className="text-[#333] font-mono text-xs mt-6">
+        <p className="text-th-text-faint font-mono text-xs mt-6">
           github.com/nilamadhab47
         </p>
       </div>

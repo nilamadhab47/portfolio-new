@@ -85,7 +85,7 @@ export const MouseAnimation = () => {
       {trail.map((point, idx) => (
         <div
           key={point.id}
-          className="fixed top-0 left-0 pointer-events-none z-40 rounded-full bg-white"
+          className="fixed top-0 left-0 pointer-events-none z-40 rounded-full bg-th-text"
           style={{
             width: `${(idx + 1) * 1}px`,
             height: `${(idx + 1) * 1}px`,
@@ -124,7 +124,7 @@ export const MouseAnimation = () => {
             transform: `translate3d(${position.x - 30}px, ${position.y - 30}px, 0)`,
           }}
         >
-          <div className="w-full h-full rounded-full border border-white/30 animate-ping" />
+          <div className="w-full h-full rounded-full border border-green-500/30 animate-ping" />
         </div>
       )}
 
@@ -136,7 +136,7 @@ export const MouseAnimation = () => {
             transform: `translate3d(${position.x - 25}px, ${position.y - 25}px, 0)`,
           }}
         >
-          <div className="w-[50px] h-[50px] rounded-full border border-white/50 animate-ping" />
+          <div className="w-[50px] h-[50px] rounded-full border border-green-500/50 animate-ping" />
         </div>
       )}
     </>

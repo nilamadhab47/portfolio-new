@@ -32,13 +32,13 @@ export const FunFeatures = () => {
 
   return (
     <div className="fixed bottom-8 left-8 z-40 hidden md:block">
-      <div className="bg-black/90 border border-green-500/30 px-4 py-3 font-mono text-sm">
+      <div className="bg-overlay border border-green-500/30 px-4 py-3 font-mono text-sm">
         <div className="flex items-center gap-2 mb-1">
           <span className="text-green-500 animate-pulse">●</span>
           <span className="text-green-400 text-xs">Session time</span>
         </div>
-        <div className="text-xl font-bold text-white">{formatTime(timeOnSite)}</div>
-        <div className="text-[#555] text-xs mt-1">{getTimeMessage()}</div>
+        <div className="text-xl font-bold text-th-text">{formatTime(timeOnSite)}</div>
+        <div className="text-th-text-muted text-xs mt-1">{getTimeMessage()}</div>
       </div>
     </div>
   );

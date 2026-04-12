@@ -7,21 +7,21 @@ export const Projects = () => {
   const featured = [
     {
       id: 1,
+      title: "F1 Intelligence Studio",
+      tagline: "Real-time race operations dashboard 🏎️",
+      description: "Live circuit visualization with animated driver markers, AI race engineer, spring-physics camera, voice commentary, and strategy simulator.",
+      tech: ["Next.js", "FastAPI", "WebSockets", "Claude AI", "ElevenLabs"],
+      link: "https://raceosf1-web.vercel.app/",
+      emoji: "🏎️",
+    },
+    {
+      id: 2,
       title: "ZeroData Labs",
       tagline: "Privacy without trust 🔐",
       description: "Privacy-preserving data infrastructure with Zero-Knowledge Proofs, MPC, and decentralized storage.",
       tech: ["ZK Proofs", "MPC", "IPFS", "Smart Contracts"],
       link: "https://www.zerodatalabs.xyz/",
       emoji: "🔐",
-    },
-    {
-      id: 2,
-      title: "Echoes in the File",
-      tagline: "Interactive noir narrative 🎬",
-      description: "Cold case detective story with cinematic narration and immersive UI experience.",
-      tech: ["React", "Web Audio", "Narrative Design"],
-      link: "#",
-      emoji: "🎬",
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ export const Projects = () => {
           {/* Section header */}
           <div className="flex items-center gap-4 mb-16">
             <span className="text-green-500 font-mono text-sm">02</span>
-            <span className="text-[#333]">/</span>
+            <span className="text-th-text-faint">/</span>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               Projects
             </h2>
@@ -67,7 +67,7 @@ export const Projects = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group hoverable block py-8 border-t border-[#111] hover:bg-green-500/5 transition-colors"
+                className="group hoverable block py-8 border-t border-th-border hover:bg-green-500/5 transition-colors"
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
@@ -75,12 +75,12 @@ export const Projects = () => {
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-3">
                       <span className="text-4xl group-hover:animate-bounce">{project.emoji}</span>
-                      <h3 className="text-3xl md:text-4xl font-bold text-white group-hover:text-green-400 transition-all">
+                      <h3 className="text-3xl md:text-4xl font-bold text-th-text group-hover:text-green-400 transition-all">
                         {project.title}
                       </h3>
                     </div>
-                    <p className="text-[#888] text-lg mb-3">{project.tagline}</p>
-                    <p className="text-[#555] max-w-xl">{project.description}</p>
+                    <p className="text-th-text-sub text-lg mb-3">{project.tagline}</p>
+                    <p className="text-th-text-muted max-w-xl">{project.description}</p>
                     
                     <div className="flex flex-wrap gap-3 mt-4">
                       {project.tech.map((tech, i) => (
@@ -91,7 +91,7 @@ export const Projects = () => {
                     </div>
                   </div>
                   
-                  <div className="text-[#333] group-hover:text-green-500 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all text-2xl">
+                  <div className="text-th-text-faint group-hover:text-green-500 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all text-2xl">
                     ↗
                   </div>
                 </div>
@@ -101,7 +101,7 @@ export const Projects = () => {
 
           {/* Other Projects */}
           <div>
-            <p className="text-white font-bold uppercase mb-8 flex items-center gap-2">
+            <p className="text-th-text font-bold uppercase mb-8 flex items-center gap-2">
               <span>📦</span> Other Projects
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -115,23 +115,23 @@ export const Projects = () => {
                       href={project.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="block border border-[#111] p-6 hover:border-green-500/50 hover:bg-green-500/5 transition-all"
+                      className="block border border-th-border p-6 hover:border-green-500/50 hover:bg-green-500/5 transition-all"
                     >
                       <div className="flex items-start justify-between mb-2">
-                        <h4 className="font-bold text-white group-hover:text-green-400 transition-colors">
+                        <h4 className="font-bold text-th-text group-hover:text-green-400 transition-colors">
                           {project.title}
                         </h4>
-                        <span className="text-[#333] group-hover:text-green-500 text-sm">↗</span>
+                        <span className="text-th-text-faint group-hover:text-green-500 text-sm">↗</span>
                       </div>
-                      <p className="text-[#555] text-sm">{project.desc}</p>
+                      <p className="text-th-text-muted text-sm">{project.desc}</p>
                     </a>
                   ) : (
-                    <div className="border border-[#111] p-6 hover:border-[#222] transition-all">
+                    <div className="border border-th-border p-6 hover:border-th-border-mid transition-all">
                       <div className="flex items-start justify-between mb-2">
-                        <h4 className="font-bold text-white">{project.title}</h4>
-                        <span className="text-[#333] font-mono text-xs">{project.tag}</span>
+                        <h4 className="font-bold text-th-text">{project.title}</h4>
+                        <span className="text-th-text-faint font-mono text-xs">{project.tag}</span>
                       </div>
-                      <p className="text-[#555] text-sm">{project.desc}</p>
+                      <p className="text-th-text-muted text-sm">{project.desc}</p>
                     </div>
                   )}
                 </div>

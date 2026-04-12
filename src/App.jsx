@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Navbar } from "./components/Navbar";
@@ -13,8 +14,9 @@ import { PlayGameSection } from "./components/PlayGameSection";
 import { Blog } from "./components/sections/Blog";
 import "./index.css";
 import { Contact } from "./components/sections/Contact";
+import { F1DashboardArticle } from "./components/blog/F1DashboardArticle";
 
-function App() {
+function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -26,7 +28,7 @@ function App() {
       <div
         className={`min-h-screen transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
-        } bg-black text-white noise`}
+        } bg-th-bg text-th-text noise`}
         style={{ cursor: 'none' }}
       >
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -40,6 +42,15 @@ function App() {
         <FunFeatures />
       </div>
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Portfolio />} />
+      <Route path="/blog/f1-intelligence-dashboard" element={<F1DashboardArticle />} />
+    </Routes>
   );
 }
 

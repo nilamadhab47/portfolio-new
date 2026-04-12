@@ -22,18 +22,18 @@ export const PlayGameSection = () => {
           {/* Section header */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <span className="text-green-500 font-mono text-sm">03</span>
-            <span className="text-[#333]">/</span>
+            <span className="text-th-text-faint">/</span>
             <span className="text-yellow-400 font-mono text-sm uppercase">🎯 Interactive</span>
           </div>
 
           {/* Title */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-white">Target Practice </span>
+            <span className="text-th-text">Target Practice </span>
             <span className="text-green-400">Game</span>
             <span className="text-4xl ml-2">🎯</span>
           </h2>
 
-          <p className="text-[#888] text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-th-text-sub text-lg md:text-xl mb-8 max-w-2xl mx-auto">
             Grab balls with your hand, throw them at targets, and unlock 
             <span className="text-amber-400"> 🍺 beer</span> and 
             <span className="text-green-400"> 🌿 weed</span> achievements at high scores!
@@ -41,22 +41,22 @@ export const PlayGameSection = () => {
 
           {/* Features */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">
-            <div className="bg-black/50 border border-[#222] px-4 py-2 text-sm">
+            <div className="bg-overlay-light border border-th-border-mid px-4 py-2 text-sm">
               <span className="text-green-400">🎯</span> Hit Targets
             </div>
-            <div className="bg-black/50 border border-[#222] px-4 py-2 text-sm">
+            <div className="bg-overlay-light border border-th-border-mid px-4 py-2 text-sm">
               <span className="text-yellow-400">🔥</span> Combo System
             </div>
-            <div className="bg-black/50 border border-[#222] px-4 py-2 text-sm">
+            <div className="bg-overlay-light border border-th-border-mid px-4 py-2 text-sm">
               <span className="text-amber-400">🍺</span> Beer Rewards
             </div>
-            <div className="bg-black/50 border border-[#222] px-4 py-2 text-sm">
+            <div className="bg-overlay-light border border-th-border-mid px-4 py-2 text-sm">
               <span className="text-green-400">🌿</span> 420 Mode
             </div>
           </div>
 
           {/* Achievement Preview */}
-          <div className="bg-black/50 border border-green-500/30 p-4 mb-10 max-w-md mx-auto">
+          <div className="bg-overlay-light border border-green-500/30 p-4 mb-10 max-w-md mx-auto">
             <p className="text-green-400 font-mono text-xs mb-3">🏆 UNLOCK AT SCORES:</p>
             <div className="flex flex-wrap justify-center gap-2 text-sm">
               <span className="px-2 py-1 bg-amber-500/20 text-amber-400 rounded">50: 🍺</span>
@@ -81,7 +81,7 @@ export const PlayGameSection = () => {
             <div className="absolute inset-0 bg-green-500 blur-xl opacity-30 group-hover:opacity-50 transition-opacity -z-10" />
           </button>
 
-          <p className="text-[#444] text-sm mt-6 font-mono">
+          <p className="text-th-text-dim text-sm mt-6 font-mono">
             Requires webcam • Best on desktop • Get to 420 for special animation! 🌿💨
           </p>
         </div>

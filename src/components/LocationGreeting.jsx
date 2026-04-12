@@ -65,19 +65,19 @@ export const LocationGreeting = () => {
       }`}
     >
       <div 
-        className="bg-black/90 border-2 px-6 py-4 flex items-center gap-4 shadow-lg"
+        className="bg-overlay border-2 px-6 py-4 flex items-center gap-4 shadow-lg"
         style={{ borderColor: location.color }}
       >
         <span className="text-4xl animate-bounce">{location.emoji}</span>
         <div>
-          <p className="text-white font-bold text-lg">{location.text}</p>
-          <p className="text-[#888] text-sm">
+          <p className="text-th-text font-bold text-lg">{location.text}</p>
+          <p className="text-th-text-sub text-sm">
             Visitor from <span style={{ color: location.color }}>{location.city}, {location.country}</span>
           </p>
         </div>
         <button 
           onClick={() => setHide(true)}
-          className="text-[#555] hover:text-white ml-4"
+          className="text-th-text-muted hover:text-th-text ml-4"
         >
           ×
         </button>

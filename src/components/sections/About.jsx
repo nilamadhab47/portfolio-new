@@ -18,7 +18,7 @@ export const About = () => {
           {/* Section header */}
           <div className="flex items-center gap-4 mb-16">
             <span className="text-green-500 font-mono text-sm">01</span>
-            <span className="text-[#333]">/</span>
+            <span className="text-th-text-faint">/</span>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               About
             </h2>
@@ -27,15 +27,15 @@ export const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left - Bio */}
             <div>
-              <p className="text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
+              <p className="text-2xl md:text-3xl font-light text-th-text leading-relaxed mb-8">
                 I build things that{" "}
                 <span className="text-stroke hoverable cursor-default">scale</span>{" "}
                 <span className="text-green-500">(and don't crash at 3 AM)</span>.
               </p>
 
-              <div className="space-y-6 text-[#888] text-lg leading-relaxed">
+              <div className="space-y-6 text-th-text-sub text-lg leading-relaxed">
                 <p>
-                  Backend & Cloud Engineer with <span className="text-white font-bold text-xl">3.5+ years</span> of 
+                  Backend & Cloud Engineer with <span className="text-th-text font-bold text-xl">3.5+ years</span> of 
                   experience turning complex problems into elegant solutions.
                 </p>
                 <p>
@@ -43,7 +43,7 @@ export const About = () => {
                   managed <span className="text-green-400 font-bold">20K+ device fleets</span>, and led 
                   <span className="text-green-400 font-bold"> 60+ technical interviews</span>.
                 </p>
-                <p className="text-[#555] italic">
+                <p className="text-th-text-muted italic">
                   "When I'm not pushing commits, I'm probably at a bar discussing 
                   why microservices are both the best and worst thing ever" 🍺
                 </p>
@@ -51,7 +51,7 @@ export const About = () => {
 
               {/* AWS Badges - BIGGER & BOLDER */}
               <div className="mt-12">
-                <p className="text-white font-bold text-lg uppercase mb-4 flex items-center gap-2">
+                <p className="text-th-text font-bold text-lg uppercase mb-4 flex items-center gap-2">
                   <span className="text-2xl">🏆</span> Certifications
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -69,7 +69,7 @@ export const About = () => {
             <div>
               {/* Skills grid */}
               <div className="mb-12">
-                <p className="text-white font-bold text-lg uppercase mb-6 flex items-center gap-2">
+                <p className="text-th-text font-bold text-lg uppercase mb-6 flex items-center gap-2">
                   <span className="text-2xl">⚡</span> Tech Stack
                 </p>
                 <div className="grid grid-cols-2 gap-6">
@@ -80,7 +80,7 @@ export const About = () => {
                         {items.map((skill, idx) => (
                           <div 
                             key={idx}
-                            className="hoverable text-white hover:text-green-400 hover:translate-x-2 transition-all cursor-default font-medium"
+                            className="hoverable text-th-text hover:text-green-400 hover:translate-x-2 transition-all cursor-default font-medium"
                           >
                             {skill}
                           </div>
@@ -93,19 +93,19 @@ export const About = () => {
 
               {/* Experience - BIGGER */}
               <div>
-                <p className="text-white font-bold text-lg uppercase mb-6 flex items-center gap-2">
+                <p className="text-th-text font-bold text-lg uppercase mb-6 flex items-center gap-2">
                   <span className="text-2xl">💼</span> Experience
                 </p>
                 <div className="space-y-8">
                   <div className="group hoverable cursor-default border-l-4 border-green-500 pl-6 py-2 hover:bg-green-500/5 transition-all">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-2xl font-bold text-white group-hover:animate-glitch">
+                      <h3 className="text-2xl font-bold text-th-text group-hover:animate-glitch">
                         Head of Engineering
                       </h3>
                       <span className="text-green-500 font-mono text-sm font-bold bg-green-500/10 px-3 py-1">2023-25</span>
                     </div>
                     <p className="text-green-400 font-medium mb-2">LensCorpAI</p>
-                    <p className="text-[#666] text-sm">
+                    <p className="text-th-text-dim text-sm">
                       Led system design, backend architecture, and AWS infrastructure. 
                       Built platforms serving 200K+ users.
                     </p>
@@ -113,13 +113,13 @@ export const About = () => {
 
                   <div className="group hoverable cursor-default border-l-4 border-blue-500 pl-6 py-2 hover:bg-blue-500/5 transition-all">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-2xl font-bold text-white group-hover:animate-glitch">
+                      <h3 className="text-2xl font-bold text-th-text group-hover:animate-glitch">
                         Full Stack Developer
                       </h3>
                       <span className="text-blue-500 font-mono text-sm font-bold bg-blue-500/10 px-3 py-1">2022-23</span>
                     </div>
                     <p className="text-blue-400 font-medium mb-2">SuperMinds IT</p>
-                    <p className="text-[#666] text-sm">
+                    <p className="text-th-text-dim text-sm">
                       Built Web3 chess platform with Ethereum & MetaMask integration.
                     </p>
                   </div>
@@ -127,16 +127,16 @@ export const About = () => {
               </div>
 
               {/* Education - BIGGER */}
-              <div className="mt-12 p-6 border-2 border-[#333] hover:border-white transition-colors">
-                <p className="text-white font-bold text-lg uppercase mb-4 flex items-center gap-2">
+              <div className="mt-12 p-6 border-2 border-th-border-strong hover:border-th-text transition-colors">
+                <p className="text-th-text font-bold text-lg uppercase mb-4 flex items-center gap-2">
                   <span className="text-2xl">🎓</span> Education
                 </p>
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="text-white font-bold text-xl">B.Sc, University of Delhi</p>
-                    <p className="text-[#555]">Computer Science</p>
+                    <p className="text-th-text font-bold text-xl">B.Sc, University of Delhi</p>
+                    <p className="text-th-text-muted">Computer Science</p>
                   </div>
-                  <span className="text-white font-mono font-bold bg-white/10 px-4 py-2">2018-21</span>
+                  <span className="text-th-text font-mono font-bold bg-th-surface px-4 py-2">2018-21</span>
                 </div>
               </div>
             </div>
