@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 
+const isTouchDevice = () =>
+  typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+
 export const MouseAnimation = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
@@ -9,6 +12,9 @@ export const MouseAnimation = () => {
   const trailLength = 8;
 
   useEffect(() => {
+    // Skip all event listeners and observers on touch devices
+    if (isTouchDevice()) return;
+
     let animationFrame;
     
     const mouseMove = (e) => {
@@ -47,17 +53,22 @@ export const MouseAnimation = () => {
 
     let elements = addHoverListeners();
 
+    let debounceTimer;
     const observer = new MutationObserver(() => {
-      elements.forEach(el => {
-        el.removeEventListener('mouseenter', handleElementEnter);
-        el.removeEventListener('mouseleave', handleElementLeave);
-      });
-      elements = addHoverListeners();
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        elements.forEach(el => {
+          el.removeEventListener('mouseenter', handleElementEnter);
+          el.removeEventListener('mouseleave', handleElementLeave);
+        });
+        elements = addHoverListeners();
+      }, 200);
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      clearTimeout(debounceTimer);
       window.removeEventListener('mousemove', mouseMove);
       window.removeEventListener('mousedown', mouseDown);
       window.removeEventListener('mouseup', mouseUp);
@@ -72,7 +83,7 @@ export const MouseAnimation = () => {
   }, []);
 
   // Hide on touch devices
-  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+  if (isTouchDevice()) {
     return null;
   }
 

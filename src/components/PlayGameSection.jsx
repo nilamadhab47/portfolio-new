@@ -1,12 +1,21 @@
-import { useState } from "react";
-import { HandTrackingGame } from "./HandTrackingGame";
+import { useState, lazy, Suspense } from "react";
+
+const HandTrackingGame = lazy(() => import("./HandTrackingGame").then(m => ({ default: m.HandTrackingGame })));
 
 export const PlayGameSection = () => {
   const [showGame, setShowGame] = useState(false);
 
   return (
     <>
-      {showGame && <HandTrackingGame onClose={() => setShowGame(false)} />}
+      {showGame && (
+        <Suspense fallback={
+          <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+            <p className="text-green-500 font-mono animate-pulse">Loading game...</p>
+          </div>
+        }>
+          <HandTrackingGame onClose={() => setShowGame(false)} />
+        </Suspense>
+      )}
 
       <section className="py-20 px-6 relative overflow-hidden">
         {/* Background */}

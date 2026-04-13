@@ -210,3 +210,10 @@ body {
 .preserve-3d {
   transform-style: preserve-3d;
 }
+
+/* Hide cursor only on devices with a fine pointer (mouse) */
+@media (pointer: fine) {
+  .desktop-cursor {
+    cursor: none;
+  }
+}
