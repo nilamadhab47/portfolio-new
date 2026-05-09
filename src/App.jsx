@@ -15,6 +15,8 @@ import { Blog } from "./components/sections/Blog";
 import "./index.css";
 import { Contact } from "./components/sections/Contact";
 import { F1DashboardArticle } from "./components/blog/F1DashboardArticle";
+import { WorldMapArticle } from "./components/blog/WorldMapArticle";
+import { PRPreviewArticle } from "./components/blog/PRPreviewArticle";
 
 function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -49,6 +51,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Portfolio />} />
       <Route path="/blog/f1-intelligence-dashboard" element={<F1DashboardArticle />} />
+      <Route path="/blog/cinematic-world-map" element={<WorldMapArticle />} />
+      <Route path="/blog/one-click-pr-previews" element={<PRPreviewArticle />} />
     </Routes>
   );
 }

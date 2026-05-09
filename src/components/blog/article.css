@@ -42,6 +42,70 @@
   --callout-bg: #141414;
 }
 
+/* ─── Gold theme (black & gold) ─── */
+.article-page.theme-gold {
+  --bg: #0a0a0a;
+  --bg-code: #111111;
+  --text: #e8e4db;
+  --text-secondary: #b8b0a0;
+  --text-muted: #706a5e;
+  --accent: #d4a812;
+  --accent-glow: rgba(212, 168, 18, 0.10);
+  --accent-dark: #f0c430;
+  --border: #2a2520;
+  --code-text: #e2dfd8;
+  --tag-color: #d4a812;
+  --tag-bg: rgba(212, 168, 18, 0.08);
+  --callout-bg: #121110;
+}
+
+.article-page.theme-gold .hero {
+  background: linear-gradient(180deg, #080604 0%, #0d0a06 60%, var(--bg) 100%);
+}
+
+.article-page.theme-gold .hero::before {
+  background:
+    radial-gradient(ellipse 600px 300px at 30% 40%, rgba(212,168,18,0.10), transparent),
+    radial-gradient(ellipse 400px 400px at 70% 60%, rgba(212,168,18,0.05), transparent);
+}
+
+.article-page.theme-gold .author-avatar {
+  background: linear-gradient(135deg, #d4a812, #f0c430);
+  color: #0a0a0a;
+}
+
+/* ─── Teal theme (dark + teal/cyan) ─── */
+.article-page.theme-teal {
+  --bg: #080c0e;
+  --bg-code: #0c1214;
+  --text: #dce8ec;
+  --text-secondary: #9ab4be;
+  --text-muted: #5a7a86;
+  --accent: #2dd4bf;
+  --accent-glow: rgba(45, 212, 191, 0.08);
+  --accent-dark: #5eead4;
+  --border: #1a2a30;
+  --code-text: #d6e8e4;
+  --tag-color: #2dd4bf;
+  --tag-bg: rgba(45, 212, 191, 0.08);
+  --callout-bg: #0c1416;
+}
+
+.article-page.theme-teal .hero {
+  background: linear-gradient(180deg, #060a0c 0%, #080e10 60%, var(--bg) 100%);
+}
+
+.article-page.theme-teal .hero::before {
+  background:
+    radial-gradient(ellipse 600px 300px at 30% 40%, rgba(45,212,191,0.08), transparent),
+    radial-gradient(ellipse 400px 400px at 70% 60%, rgba(45,212,191,0.04), transparent);
+}
+
+.article-page.theme-teal .author-avatar {
+  background: linear-gradient(135deg, #2dd4bf, #5eead4);
+  color: #080c0e;
+}
+
 /* ─── Back Button ─── */
 .article-back-btn {
   position: fixed;
@@ -288,14 +352,10 @@
 .article-page .article code {
   font-family: var(--mono);
   font-size: 0.85em;
-  background: rgba(225, 6, 0, 0.06);
+  background: var(--accent-glow);
   color: var(--accent-dark);
   padding: 0.15em 0.45em;
   border-radius: 4px;
-}
-
-[data-theme="dark"] .article-page .article code {
-  background: rgba(255, 42, 31, 0.1);
 }
 
 /* code inside code-block should not get inline styles */
@@ -469,7 +529,7 @@
 .article-page .article a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(225,6,0,0.2);
+  border-bottom: 1px solid var(--accent-glow);
   transition: border-color 0.2s;
 }
 
